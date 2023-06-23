@@ -29,14 +29,13 @@ Welcome to the Universidad de Chile SumoBot Project! This repository contains th
 
 The following components are required to build the Universidad de Chile SumoBot:
 
-- High-torque DC motors with encoders
-- Motor drivers
-- Microcontroller (e.g. Arduino, Raspberry Pi, or ESP32)
-- Infrared or ultrasonic sensors for object detection
-- Gyroscope and accelerometer for orientation and movement tracking
-- Battery pack
-- Custom-designed chassis and wheels
-- Optional: Camera module for computer vision
+- Gearmotor with Wheel
+- Battery
+- Driver
+- Infrared Sensor
+- Ultrasonic Sensor
+- Arduino
+- Wheel Omnidirectional
 
 ## Software Requirements
 
