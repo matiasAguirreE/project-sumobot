@@ -18,12 +18,11 @@ Welcome to the Universidad de Chile SumoBot Project! This repository contains th
 
 ## Features
 
-- Custom mechanical design optimized for speed and power
-- Advanced control algorithms for precise movement and decision-making
-- Built-in object detection and tracking using sensors and computer vision
-- Remote control and monitoring capabilities
+- Custom mechanical design optimized to be difficult to flip
+- Advanced control algorithms for precise movement and decision-making (in progress)
+- Built-in object detection and tracking using sensors
 - Modular design for easy hardware and software upgrades
-- Comprehensive documentation and tutorials for building and programming the sumobot
+- Comprehensive documentation for building and programming the sumobot
 
 ## Hardware Requirements
 
@@ -41,8 +40,7 @@ The following components are required to build the Universidad de Chile SumoBot:
 
 - IDE for microcontroller programming (e.g. Arduino IDE, Visual Studio Code with PlatformIO)
 - Libraries for motor control, sensor interfacing and communication
-- Python, C++, or other supported programming language for custom algorithms and control logic
-- Optional: OpenCV or other computer vision libraries
+- C++ for custom algorithms and control logic (other supported programming languages are optional, we will use C++)
 
 ## Getting Started
 
@@ -50,7 +48,7 @@ The following components are required to build the Universidad de Chile SumoBot:
 2. Review the `docs` folder for detailed documentation on the mechanical design, electronic components, and software architecture.
 3. Assemble the hardware components following the provided schematics and guidelines.
 4. Upload the provided firmware to the microcontroller, and modify the code as needed for your specific hardware configuration.
-5. Test and calibrate the sumobot using the provided software tools and tutorials.
+5. Test and calibrate the sumobot using the provided software tools.
 6. Compete and have fun!
 
 ## Contributing
@@ -75,4 +73,4 @@ This project is licensed under the Creative Commons Attribution 4.0 Internationa
 
 ## Acknowledgments
 
-We would like to thank the Universidad de Chile and our professors for their guidance and support throughout this project. We also appreciate the open-source community
+We would like to thank the Universidad de Chile and our professors for their guidance and support throughout this project. We also appreciate the open-source community.
