@@ -35,6 +35,8 @@ The following components are required to build the Universidad de Chile SumoBot:
 - Ultrasonic Sensor
 - Arduino
 - Wheel Omnidirectional
+- Cables
+- Protoboard
 
 ## Software Requirements
 
