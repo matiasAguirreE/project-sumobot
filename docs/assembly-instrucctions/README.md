@@ -13,6 +13,8 @@ Before you begin, make sure you have the following commercial components:
 - Ultrasonic Sensor
 - Arduino
 - Wheel Omnidirectional
+- Cables
+- Protoboard
 
 For more information go to the [hardware list](https://github.com/matiasAguirreE/project-sumobot/tree/main/docs/hardware-list) file.
 
