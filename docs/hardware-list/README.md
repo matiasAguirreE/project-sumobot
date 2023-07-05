@@ -36,19 +36,20 @@ The following components are required to build the Universidad de Chile SumoBot:
 - Charge Plug: JST-XHR-3P
 - Discharge Plug: XT30
 
-## [Driver](https://altronics.cl/driver-tb6612fng)
+## [Driver](https://altronics.cl/modulo-puente-h-l298)
 
-<img src="https://altronics.cl/image/cache/catalog/productos/electronica/actuadores/driver-tb6612/driver-tb6612-3-500x500.jpg" alt="Driver" width="400">
+<img src="https://altronics.cl/image/cache/catalog/productos/electronica/accesorios_arduino/driver_l298/driver_l298_1-228x228.jpg" alt="Driver" width="400">
 
 ### Technical characteristics:
 
-- Chip: TB6612FNG (Toshiba)
-- Channels: 2 (supports 2 DC motors or 1 PAP motor)
-- Power Voltage (VMOT): 5V - 15V
-- Operating Voltage (VCC): 2.7V - 5.5V
-- Current Capacity: 1.2A (peaks up to 3A)
-- Maximum dissipated power: 1W
-- It has internal protection diodes
+- Based on the 298 chip.
+- Capable of controlling 2 (3-30VDC) Motors
+- Supports 3.3V and 5V control.
+- Capable of controlling the speed and direction of 2 DC motors.
+- Able to control the speed and direction of a stepper motor.
+- 2A maximum current per H-bridge.
+- Logic voltage levels 4.5 to 5.5V (High) / 0V (Low).
+- Maximum consumption power: 20W.
 
 ## [Infrared Sensor](https://www.electroardu.cl/sensor-infrarrojo-evasor-de-obstaculos?utm_source=js-google-shopping-app&utm_medium=js-google-shopping-app)
 
@@ -93,3 +94,21 @@ The following components are required to build the Universidad de Chile SumoBot:
 - Base dimensions: 32 x 37mm
 - Overall Height: 35mm
 - Weight: 31g
+
+## [Cables](https://altronics.cl/jumper-dupont-20cm-mm?search=macho%20macho%20cables)
+
+<img src="https://altronics.cl/image/cache/catalog/productos/electronica/cables/jumperdupont_mm_20cm/jumperdupont_mm_1-228x228.JPG" alt="Cables" width="400">
+
+### Technical characteristics:
+
+- N/A
+
+## [Protoboard](https://altronics.cl/protoboard-400ptos)
+
+<img src="https://altronics.cl/image/cache/catalog/productos/electronica/prototipos/protoboard_400pt/protoboard_400holes_1-228x228.jpg" alt="Protoboard" width="400">
+
+### Technical characteristics:
+
+- 400 points
+- Dimensions: 8.5 x 5.5 x 0.9cm
+- Net weight: 40g
