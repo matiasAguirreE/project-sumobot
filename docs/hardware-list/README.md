@@ -21,20 +21,17 @@ The following components are required to build the Universidad de Chile SumoBot:
 - Torque: 5 Kg x cm
 - Engine Weight: 86 gr
 
-## [Battery](https://www.xrchobbies.cl/product/7-4v-550mah-xt30)
+## [Battery](https://articulo.mercadolibre.cl/MLC-464519432-bateria-lipo-111v-25c-1300mah-airsoft-replicas-paintball-_JM#position=4&search_layout=stack&type=item&tracking_id=222f39a0-d4d9-4c22-90cd-d6a0d794090c)
 
-<img src="https://dojiw2m9tvv09.cloudfront.net/48579/product/X_1-47-2-993439635.jpg?54&time=1687544917" alt="Battery" width="400">
+<img src="https://http2.mlstatic.com/D_NQ_NP_2X_765770-MLC31212521864_062019-F.webp" alt="Battery" width="400">
 
 ### Technical characteristics:
 
-- Minimum Capacity: 550mAh
-- Configuration: 2S1P / 7.4V / 2Cells
-- Discharge Rate: 95C
-- Max Burst discharge Rate: 190C
-- Net Weight(±5g): 31.5g
-- Dimensions: 61mm Length x 19mm Width x 15mm Height
-- Charge Plug: JST-XHR-3P
-- Discharge Plug: XT30
+- Li-poly battery
+- 11.1v 25c 1300mAh
+- Airsoft replicas
+- zoppower brand
+- measures 10 cm x 2 cm x 2 cm
 
 ## [Driver](https://altronics.cl/modulo-puente-h-l298)
 
