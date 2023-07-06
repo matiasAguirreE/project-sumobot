@@ -109,3 +109,16 @@ The following components are required to build the Universidad de Chile SumoBot:
 - 400 points
 - Dimensions: 8.5 x 5.5 x 0.9cm
 - Net weight: 40g
+
+## [Button](https://createc3d.com/es/mas-componentes/797-pulsador-de-boton-6-x-6-x-5-mm.html)
+
+<img src="https://createc3d.com/3206-large_default/pulsador-de-boton-6-x-6-x-5-mm.webp" alt="Button" width="400">
+
+### Technical characteristics:
+
+- Contact Type: Momentary
+- Plastic cover material
+- Material conductive metal electrical parts
+- Pins: 4
+- Dimensions: 0.6 x 0.6cm
+- Weight: 0.8 gr
