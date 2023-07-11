@@ -85,7 +85,7 @@ void setup() {
   pinMode(rearInfraredPin, INPUT);
 
   // Setup of the button
-  pinMode(buttonPin, INPUT);
+  pinMode(buttonPin, INPUT_PULLUP);
 
   // Setup of the ultrasonic pins
   pinMode(ultrasonicTriggerPin, OUTPUT);
@@ -104,7 +104,7 @@ void setup() {
   */
 void loop() {
   // If the button was pressed
-  if (digitalRead(buttonPin) == HIGH){
+  if (digitalRead(buttonPin) == LOW && !buttonPressed){
    buttonWasPressed();
   }
   if (buttonPressed) {
