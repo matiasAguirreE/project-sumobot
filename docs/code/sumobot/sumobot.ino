@@ -85,11 +85,17 @@ void setup() {
   pinMode(rearInfraredPin, INPUT);
 
   // Setup of the button
-  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(buttonPin, INPUT);
 
   // Setup of the ultrasonic pins
   pinMode(ultrasonicTriggerPin, OUTPUT);
   pinMode(ultrasonicEchoPin, INPUT);
+
+  // Setup of the motors
+  pinMode(motorLeftPin1, OUTPUT);
+  pinMode(motorLeftPin2, OUTPUT);
+  pinMode(motorRightPin1, OUTPUT);
+  pinMode(motorRightPin2, OUTPUT);
 }
 
 /** Loop to control the attack of the sumobot
@@ -138,6 +144,7 @@ void buttonWasPressed() {
   */
 void attack() {
  // Code to attack the enemy
+ moveMotors(0, 255);
 }
 
 /** Function to find the enemy
@@ -146,6 +153,7 @@ void attack() {
   */
 void findEnemy() {
  // Code to find the enemy
+ moveMotors(50, 50);
 }
 
 /** Function to tell if the enemy is on the front or not
@@ -205,6 +213,7 @@ bool onBorderRear() {
   */
 void goAwayFoward() {
  // Code to go away from the border of the foward
+ moveMotors(-255, -255);
 }
 
 /** Function to go away from the border of the rear
@@ -213,6 +222,7 @@ void goAwayFoward() {
   */
 void goAwayRear() {
  // Code to go away from the border of the rear
+ moveMotors(255, 255);
 }
 
 /** Function to move the motors
@@ -224,13 +234,13 @@ void goAwayRear() {
   */
 void moveMotors(int leftSpeed, int rightSpeed) {
   if (leftSpeed > 0) {
-    analogWrite(motorLeftPin1, leftSpeed);  
+    analogWrite(motorLeftPin2, leftSpeed);  
   } else {
-    analogWrite(motorLeftPin2, -leftSpeed);
+    analogWrite(motorLeftPin1, -leftSpeed);
   }
   if (rightSpeed > 0) {
-    analogWrite(motorRightPin1, rightSpeed);
+    analogWrite(motorRightPin2, rightSpeed);
   } else {
-    analogWrite(motorRightPin2, -rightSpeed);
+    analogWrite(motorRightPin1, -rightSpeed);
   }
 }
