@@ -45,12 +45,18 @@ const int ultrasonicEchoPin = 4;
   */
 const int buttonPin = 2;
 
-// Declaration of variables
+// Declaration of constants
 /** Distance of the dome in centimeters
   *
   * It is the distance of the dome in centimeters where the sumobots have to fight
   */
 const int maxDistance = 150
+
+/** Value of threshold
+  *
+  * Value of threshold to establish when the infrared detect a color black and when the infrared detect a color white
+  */
+const int detectionThreshold = 800
 
 /** Setup of the infrared pins, the button and the ultrasonic sensor
   *
@@ -144,7 +150,11 @@ bool enemyIsNear() {
   * @return True if the border is on the foward and False in other cases
   */
 bool onBorderFoward() {
- // Code to detect the border with the foward sensor
+ // Save the lecture of the infrared sensor
+ int lecture = analogRead(fowardInfraredPin);
+
+ // Returns the boolean that says if the sumobot is on the border on the foward
+ return lecture>=detectionThreshold;
 }
 
 /** Function to tell if the border is on the rear or not
@@ -154,7 +164,11 @@ bool onBorderFoward() {
   * @return True if the border is on the rear and False in other cases
   */
 bool onBorderRear() {
- // Code to detect the border with the rear sensor
+ // Save the lecture of the infrared sensor
+ int lecture = analogRead(rearInfraredPin);
+
+ // Returns the boolean that says if the sumobot is on the border on the rear
+ return lecture>=detectionThreshold;
 }
 
 /** Function to go away from the border of the foward
