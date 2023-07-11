@@ -4,25 +4,25 @@
  *
  * It is the number of the pin used to control the left motor on clockwise
  */
-int motorLeftPin1;
+int motorLeftPin1 = 5;
 
 /** Pin of the left motor on counter-clock wise 
  *
  * It is the number of the pin used to control the left motor on counter-clock wise
  */
-int motorLeftPin2;
+int motorLeftPin2 = 6;
 
 /** Pin of the right motor on clockwise
  *
  * It is the number of the pin used to control the right motor on clockwise
  */
-int motorRightPin1;
+int motorRightPin1 = 9;
 
 /** Pin of the right motor on counter-clock wise
  *
  * It is the number of the pin used to control the right motor on counter-clock wise
  */
-int motorRightPin2;
+int motorRightPin2 = 10;
 
 /** Pin of the foward infrared 
  *
