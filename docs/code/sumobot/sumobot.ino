@@ -1,62 +1,70 @@
-#include <Stepper.h>
-
 // Declaration of pins
-/** Pin of the left motor 
-  *
-  * It is the number of the pins used to control the left motor
-  */
-const int motorLeftPins[] = {5, 6};
-Stepper motorLeft(200, motorLeftPins[0], motorLeftPins[1]);
+/** Pin of the left motor on clockwise 
+ *
+ * It is the number of the pin used to control the left motor on clockwise
+ */
+int motorLeftPin1 = 6;
 
-/** Pin of the right motor 
-  *
-  * It is the number of the pins used to control the right motor
-  */
-const int motorRightPins[] = {9, 10};
-Stepper motorRight(200, motorRightPins[0], motorRightPins[1]);
+/** Pin of the left motor on counter-clock wise 
+ *
+ * It is the number of the pin used to control the left motor on counter-clock wise
+ */
+int motorLeftPin2 = 9;
+
+/** Pin of the right motor on clockwise 
+ *
+ * It is the number of the pin used to control the right motor on clockwise
+ */
+int motorRightPin1 = 10;
+
+/** Pin of the right motor on counter-clock wise 
+ *
+ * It is the number of the pin used to control the right motor on counter-clock wise
+ */
+int motorRightPin2 = 11;
 
 /** Pin of the foward infrared 
   *
   * It is the number of the pin used to control the foward infrared
   */
-const int fowardInfraredPin = 13;
+const int fowardInfraredPin = 8;
 
 /** Pin of the rear infrared 
   *
   * It is the number of the pin used to control the rear infrared
   */
-const int rearInfraredPin = 12;
+const int rearInfraredPin = 7;
 
 /** Pin of the ultrasonic trigger 
   *
   * It is the number of the pin used to control the trigger of the ultrasonic sensor
   */
-const int ultrasonicTriggerPin = 3;
+const int ultrasonicTriggerPin = 4;
 
 /** Pin of the ultrasonic echo 
   *
   * It is the number of the pin used to control the echo of the ultrasonic sensor
   */
-const int ultrasonicEchoPin = 4;
+const int ultrasonicEchoPin = 2;
 
 /** Pin of the button 
   *
   * It is the number of the pin used to control the button
   */
-const int buttonPin = 2;
+const int buttonPin = 1;
 
 // Declaration of constants
 /** Distance of the dome in centimeters
   *
   * It is the distance of the dome in centimeters where the sumobots have to fight
   */
-const int maxDistance = 150
+const int maxDistance = 150;
 
 /** Value of threshold
   *
   * Value of threshold to establish when the infrared detect a color black and when the infrared detect a color white
   */
-const int detectionThreshold = 800
+const int detectionThreshold = 800;
 
 // Declaration of variables
 /** Boolean of button
@@ -215,6 +223,14 @@ void goAwayRear() {
   * @param rightSpeed Is the speed of the right motor
   */
 void moveMotors(int leftSpeed, int rightSpeed) {
-  motorLeft.setSpeed(leftSpeed);
-  motorRight.setSpeed(rightSpeed);
+  if (leftSpeed > 0) {
+    analogWrite(motorLeftPin1, leftSpeed);  
+  } else {
+    analogWrite(motorLeftPin2, -leftSpeed);
+  }
+  if (rightSpeed > 0) {
+    analogWrite(motorRightPin1, rightSpeed);
+  } else {
+    analogWrite(motorRightPin2, -rightSpeed);
+  }
 }
