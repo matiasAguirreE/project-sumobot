@@ -1,26 +1,26 @@
 // Declaration of pins
 /** Pin of the left motor on clockwise 
- *
- * It is the number of the pin used to control the left motor on clockwise
- */
+  *
+  * It is the number of the pin used to control the left motor on clockwise
+  */
 int motorLeftPin1 = 6;
 
 /** Pin of the left motor on counter-clock wise 
- *
- * It is the number of the pin used to control the left motor on counter-clock wise
- */
+  *
+  * It is the number of the pin used to control the left motor on counter-clock wise
+  */
 int motorLeftPin2 = 9;
 
 /** Pin of the right motor on clockwise 
- *
- * It is the number of the pin used to control the right motor on clockwise
- */
+  *
+  * It is the number of the pin used to control the right motor on clockwise
+  */
 int motorRightPin1 = 10;
 
 /** Pin of the right motor on counter-clock wise 
- *
- * It is the number of the pin used to control the right motor on counter-clock wise
- */
+  *
+  * It is the number of the pin used to control the right motor on counter-clock wise
+  */
 int motorRightPin2 = 11;
 
 /** Pin of the foward infrared 
@@ -105,25 +105,25 @@ void setup() {
 void loop() {
   // If the button was pressed
   if (digitalRead(buttonPin) == LOW && !buttonPressed){
-   buttonWasPressed();
+    buttonWasPressed();
   }
   if (buttonPressed) {
-   // Look out the other sumobot to attack him
-   if (enemyIsNear()) {
-    // Attack the other sumobot
-    attack();
-   } else {
-    findEnemy();
-   }
-   // Checkout if the sumobot is on the border 
-   if (onBorderFoward()) {
-    // Go away from the border
-    goAwayFoward();
-   }
-   if (onBorderRear()) {
-    // Go away from the border
-    goAwayRear();
-   }
+    // Look out the other sumobot to attack him
+    if (enemyIsNear()) {
+      // Attack the other sumobot
+      attack();
+    } else {
+      findEnemy();
+    }
+    // Checkout if the sumobot is on the border 
+    if (onBorderFoward()) {
+      // Go away from the border
+      goAwayFoward();
+    }
+    if (onBorderRear()) {
+      // Go away from the border
+      goAwayRear();
+    }
   }
 }
 
@@ -132,10 +132,10 @@ void loop() {
   * Function that is executed after the button was pressed, where the function add a delay of five seconds and change the boolean buttonPressed
   */
 void buttonWasPressed() {
- // Change boolean of buttonPressed
- buttonPressed = true;
- // Delay to attack five seconds after the button was pressed
- delay(5000);
+  // Change boolean of buttonPressed
+  buttonPressed = true;
+  // Delay to attack five seconds after the button was pressed
+  delay(5000);
 }
 
 /** Function to attack the enemy
@@ -143,8 +143,8 @@ void buttonWasPressed() {
   * Function with an algorithm to attack the enemy and avoid the attacks of the enemy 
   */
 void attack() {
- // Code to attack the enemy
- moveMotors(0, 255);
+  // Code to attack the enemy
+  moveMotors(0, 255);
 }
 
 /** Function to find the enemy
@@ -152,8 +152,8 @@ void attack() {
   * Function that move the sumobot to find the enemy 
   */
 void findEnemy() {
- // Code to find the enemy
- moveMotors(50, 50);
+  // Code to find the enemy
+  moveMotors(50, 50);
 }
 
 /** Function to tell if the enemy is on the front or not
@@ -163,20 +163,20 @@ void findEnemy() {
   * @return True if the enemy is on the front and False in other cases
   */
 bool enemyIsNear() {
- // Generate a pulse to detect the enemy
- digitalWrite(ultrasonicTriggerPin, LOW);
- delayMicroseconds(2);
- digitalWrite(ultrasonicTriggerPin, HIGH);
- delayMicroseconds(10);
- digitalWrite(ultrasonicTriggerPin, LOW);
+  // Generate a pulse to detect the enemy
+  digitalWrite(ultrasonicTriggerPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(ultrasonicTriggerPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(ultrasonicTriggerPin, LOW);
 
- // Calculates the duration of the pulse
- long duration = pulseIn(ultrasonicEchoPin, HIGH);
- // Calculates the distance in centimeters based on the duration of the pulse
- int distance = duration/58;
+  // Calculates the duration of the pulse
+  long duration = pulseIn(ultrasonicEchoPin, HIGH);
+  // Calculates the distance in centimeters based on the duration of the pulse
+  int distance = duration/58;
 
- // Returns the boolean that says if the enemy is near of him
- return distance<maxDistance;
+  // Returns the boolean that says if the enemy is near of him
+  return distance<maxDistance;
 }
 
 /** Function to tell if the border is on the foward or not
@@ -186,11 +186,11 @@ bool enemyIsNear() {
   * @return True if the border is on the foward and False in other cases
   */
 bool onBorderFoward() {
- // Save the lecture of the infrared sensor
- int lecture = analogRead(fowardInfraredPin);
+  // Save the lecture of the infrared sensor
+  int lecture = analogRead(fowardInfraredPin);
 
- // Returns the boolean that says if the sumobot is on the border on the foward
- return lecture>=detectionThreshold;
+  // Returns the boolean that says if the sumobot is on the border on the foward
+  return lecture>=detectionThreshold;
 }
 
 /** Function to tell if the border is on the rear or not
@@ -200,11 +200,11 @@ bool onBorderFoward() {
   * @return True if the border is on the rear and False in other cases
   */
 bool onBorderRear() {
- // Save the lecture of the infrared sensor
- int lecture = analogRead(rearInfraredPin);
+  // Save the lecture of the infrared sensor
+  int lecture = analogRead(rearInfraredPin);
 
- // Returns the boolean that says if the sumobot is on the border on the rear
- return lecture>=detectionThreshold;
+  // Returns the boolean that says if the sumobot is on the border on the rear
+  return lecture>=detectionThreshold;
 }
 
 /** Function to go away from the border of the foward
@@ -212,8 +212,8 @@ bool onBorderRear() {
   * Function that go back from the border of the foward moving on rear
   */
 void goAwayFoward() {
- // Code to go away from the border of the foward
- moveMotors(-255, -255);
+  // Code to go away from the border of the foward
+  moveMotors(-255, -255);
 }
 
 /** Function to go away from the border of the rear
@@ -221,8 +221,8 @@ void goAwayFoward() {
   * Function that go back from the border of the rear moving on foward
   */
 void goAwayRear() {
- // Code to go away from the border of the rear
- moveMotors(255, 255);
+  // Code to go away from the border of the rear
+  moveMotors(255, 255);
 }
 
 /** Function to move the motors
