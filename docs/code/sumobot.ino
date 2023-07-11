@@ -1,28 +1,19 @@
+#include <Stepper.h>
+
 // Declaration of pins
-
-/** Pin of the left motor on clockwise 
+/** Pin of the left motor 
  *
- * It is the number of the pin used to control the left motor on clockwise
+ * It is the number of the pins used to control the left motor
  */
-int motorLeftPin1 = 5;
+int motorLeftPins[] = {5, 6};
+Stepper motorLeft(200, motorLeftPins[0], motorLeftPins[1]);
 
-/** Pin of the left motor on counter-clock wise 
+/** Pin of the right motor 
  *
- * It is the number of the pin used to control the left motor on counter-clock wise
+ * It is the number of the pins used to control the right motor
  */
-int motorLeftPin2 = 6;
-
-/** Pin of the right motor on clockwise
- *
- * It is the number of the pin used to control the right motor on clockwise
- */
-int motorRightPin1 = 9;
-
-/** Pin of the right motor on counter-clock wise
- *
- * It is the number of the pin used to control the right motor on counter-clock wise
- */
-int motorRightPin2 = 10;
+int motorRightPins[] = {9, 10};
+Stepper motorRight(200, motorRightPins[0], motorRightPins[1]);
 
 /** Pin of the foward infrared 
  *
@@ -64,10 +55,10 @@ void setup() {
   pinMode(rearInfraredPin, INPUT);
 
   // Setup of the button
-  pinMode(buttonPin, INPUT);
+  pinMode(buttonPin, INPUT_PULLUP);
 
   // Setup of the ultrasonic pins
-  pinMode(ultrasonicTriggerPin, INPUT);
+  pinMode(ultrasonicTriggerPin, OUTPUT);
   pinMode(ultrasonicEchoPin, INPUT);
 }
 
@@ -158,4 +149,20 @@ void goAwayFoward() {
   */
 void goAwayRear() {
  // Code to go away from the border of the rear
+}
+
+/** Function to move the motors
+  *
+  * Function that move the motors based on the left speed, right speed, left steps and right steps inserted on the params
+  *
+  * @param leftSpeed Is the speed of the left motor
+  * @param rightSpeed Is the speed of the right motor
+  * @param leftStep Is the steps of the left motor
+  * @param rightStep Is the steps of the right motor
+  */
+void moveMotors(int leftSpeed, int rightSpeed, int leftStep, int rightStep) {
+  motorLeft.setSpeed(leftSpeed);
+  motorLeft.step(leftStep);
+  motorRight.setSpeed(rightSpeed);
+  motorRight.step(rightStep);
 }
