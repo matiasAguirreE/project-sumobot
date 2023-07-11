@@ -58,6 +58,13 @@ const int maxDistance = 150
   */
 const int detectionThreshold = 800
 
+// Declaration of variables
+/** Boolean of button
+  *
+  * Boolean of the button that says if the button was pressed
+  */
+bool buttonPressed = false;
+
 /** Setup of the infrared pins, the button and the ultrasonic sensor
   *
   * Setup of the two infrared pins, one on the foward and the other on the rear, setup of one button and setup of the ultrasonic pins of the ultrasonic sensor, which is the trigger and the echo
@@ -83,8 +90,10 @@ void setup() {
   */
 void loop() {
   // If the button was pressed
-  if (digitalRead(buttonPin) == LOW) {
-   delay(5000); // Delay to attack five seconds after the button was pressed
+  if (digitalRead(buttonPin) == HIGH){
+   buttonWasPressed();
+  }
+  if (buttonPressed) {
    // Look out the other sumobot to attack him
    if (enemyIsNear()) {
     // Attack the other sumobot
@@ -102,6 +111,17 @@ void loop() {
     goAwayRear();
    }
   }
+}
+
+/** Function that is executed when the button was pressed
+  *
+  * Function that is executed after the button was pressed, where the function add a delay of five seconds and change the boolean buttonPressed
+  */
+void buttonWasPressed() {
+ // Change boolean of buttonPressed
+ buttonPressed = true;
+ // Delay to attack five seconds after the button was pressed
+ delay(5000);
 }
 
 /** Function to attack the enemy
