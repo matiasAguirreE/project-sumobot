@@ -2,54 +2,63 @@
 
 // Declaration of pins
 /** Pin of the left motor 
- *
- * It is the number of the pins used to control the left motor
- */
-int motorLeftPins[] = {5, 6};
+  *
+  * It is the number of the pins used to control the left motor
+  */
+const int motorLeftPins[] = {5, 6};
 Stepper motorLeft(200, motorLeftPins[0], motorLeftPins[1]);
 
 /** Pin of the right motor 
- *
- * It is the number of the pins used to control the right motor
- */
-int motorRightPins[] = {9, 10};
+  *
+  * It is the number of the pins used to control the right motor
+  */
+const int motorRightPins[] = {9, 10};
 Stepper motorRight(200, motorRightPins[0], motorRightPins[1]);
 
 /** Pin of the foward infrared 
- *
- * It is the number of the pin used to control the foward infrared
- */
-int fowardInfraredPin = 13;
+  *
+  * It is the number of the pin used to control the foward infrared
+  */
+const int fowardInfraredPin = 13;
 
 /** Pin of the rear infrared 
- *
- * It is the number of the pin used to control the rear infrared
- */
-int rearInfraredPin = 12;
+  *
+  * It is the number of the pin used to control the rear infrared
+  */
+const int rearInfraredPin = 12;
 
 /** Pin of the ultrasonic trigger 
- *
- * It is the number of the pin used to control the trigger of the ultrasonic sensor
- */
-int ultrasonicTriggerPin = 3;
+  *
+  * It is the number of the pin used to control the trigger of the ultrasonic sensor
+  */
+const int ultrasonicTriggerPin = 3;
 
 /** Pin of the ultrasonic echo 
- *
- * It is the number of the pin used to control the echo of the ultrasonic sensor
- */
-int ultrasonicEchoPin = 4;
+  *
+  * It is the number of the pin used to control the echo of the ultrasonic sensor
+  */
+const int ultrasonicEchoPin = 4;
 
 /** Pin of the button 
- *
- * It is the number of the pin used to control the button
- */
-int buttonPin = 2;
+  *
+  * It is the number of the pin used to control the button
+  */
+const int buttonPin = 2;
+
+// Declaration of variables
+/** Distance of the dome in centimeters
+  *
+  * It is the distance of the dome in centimeters where the sumobots have to fight
+  */
+const int maxDistance = 150
 
 /** Setup of the infrared pins, the button and the ultrasonic sensor
   *
   * Setup of the two infrared pins, one on the foward and the other on the rear, setup of one button and setup of the ultrasonic pins of the ultrasonic sensor, which is the trigger and the echo
   */
 void setup() {
+  // Setup of the serial port
+  Serial.begin(9600);
   // Setup of the infrared pins
   pinMode(fowardInfraredPin, INPUT);
   pinMode(rearInfraredPin, INPUT);
@@ -112,7 +121,20 @@ void findEnemy() {
   * @return True if the enemy is on the front and False in other cases
   */
 bool enemyIsNear() {
- // Code to detect the enemy
+ // Generate a pulse to detect the enemy
+ digitalWrite(ultrasonicTriggerPin, LOW);
+ delayMicroseconds(2);
+ digitalWrite(ultrasonicTriggerPin, HIGH);
+ delayMicroseconds(10);
+ digitalWrite(ultrasonicTriggerPin, LOW);
+
+ // Calculates the duration of the pulse
+ long duration = pulseIn(ultrasonicEchoPin, HIGH);
+ // Calculates the distance in centimeters based on the duration of the pulse
+ int distance = duration/58;
+
+ // Returns the boolean that says if the enemy is near of him
+ return distance<maxDistance;
 }
 
 /** Function to tell if the border is on the foward or not
