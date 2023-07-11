@@ -189,16 +189,12 @@ void goAwayRear() {
 
 /** Function to move the motors
   *
-  * Function that move the motors based on the left speed, right speed, left steps and right steps inserted on the params
+  * Function that move the motors based on the left speed and right speed inserted on the params
   *
   * @param leftSpeed Is the speed of the left motor
   * @param rightSpeed Is the speed of the right motor
-  * @param leftStep Is the steps of the left motor
-  * @param rightStep Is the steps of the right motor
   */
-void moveMotors(int leftSpeed, int rightSpeed, int leftStep, int rightStep) {
+void moveMotors(int leftSpeed, int rightSpeed) {
   motorLeft.setSpeed(leftSpeed);
-  motorLeft.step(leftStep);
   motorRight.setSpeed(rightSpeed);
-  motorRight.step(rightStep);
 }
