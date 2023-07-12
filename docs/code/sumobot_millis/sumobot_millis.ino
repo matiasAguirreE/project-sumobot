@@ -69,13 +69,6 @@ const int maxDistance = 40;
   */
 bool buttonPressed = false;
 
-/** Boolean of first attack
-  *
-  * Boolean of the first attack of the sumobot that says if the sumobot used his first attack
-  
-bool firstAttack = false;
-*/
-
 /** Previous time of search stage swap
   *
   * Last time of swap between scanning and moving
@@ -83,15 +76,15 @@ bool firstAttack = false;
 unsigned long previousTime = 0;
 
 /** Variable for saving current time
- *  
- */
+  * 
+  * Current time of the sumobot saved with the fuction millis()
+  */
 unsigned long currentTime = 0;
 
 /** Stage of search algorithm
- * 
- * If true, the bot is scanning the area in front of it
- * If false, it's moving forward to scan again
- */
+  * 
+  * If true, the bot is scanning the area in front of it, else if false, it's moving forward to scan again
+  */
 bool flag = false;
 
 /** Setup of the infrared pins, the button and the ultrasonic sensor
@@ -126,9 +119,9 @@ void loop() {
   // If the button was pressed
   if (buttonPin.toggled() && !buttonPressed){
     // Change boolean of buttonPressed
-  buttonPressed = !buttonPressed;
-  // Delay to attack five seconds after the button was pressed
-  delay(5000);
+    buttonPressed = !buttonPressed;
+    // Delay to attack five seconds after the button was pressed
+    delay(5000);
   }
   if (buttonPressed) {
     currentTime = millis();
@@ -153,7 +146,6 @@ void loop() {
   }
 }
 
-
 /** Function to attack the enemy
   *
   * Function with an algorithm to attack the enemy and avoid the attacks of the enemy 
@@ -169,25 +161,20 @@ void attack() {
   */
 void findEnemy() {
   // Code to find the enemy
-
-/**  if (!firstAttack) {
-    moveMotors(100, -100);
-    firstAttack = true;
-    delay(250);
-  }
-  */
   if ((currentTime-previousTime) > 700) {
     if (!flag){
-    flag = true;
-    moveMotors(100, 100);
-    previousTime = currentTime;}
-    else {
-    flag = false;
-    moveMotors(-100, 100);
-    previousTime = currentTime;    
+      flag = true;
+      moveMotors(100, 100);
+      previousTime = currentTime;
     }
+    else {
+      flag = false;
+      moveMotors(-100, 100);
+      previousTime = currentTime;    
+    }
+  }
 }
-}
+
 /** Function to tell if the enemy is on the front or not
   *
   * Function that use the ultrasonic sensor to detect if the enemy is in front of the sumobot or not
