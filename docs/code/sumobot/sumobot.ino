@@ -5,25 +5,25 @@
   *
   * It is the number of the pin used to control the left motor on clockwise
   */
-int motorLeftPin1 = 10;
+const int motorLeftPin1 = 10;
 
 /** Pin of the left motor on counter-clock wise 
   *
   * It is the number of the pin used to control the left motor on counter-clock wise
   */
-int motorLeftPin2 = 11;
+const int motorLeftPin2 = 11;
 
 /** Pin of the right motor on clockwise 
   *
   * It is the number of the pin used to control the right motor on clockwise
   */
-int motorRightPin1 = 6;
+const int motorRightPin1 = 6;
 
 /** Pin of the right motor on counter-clock wise 
   *
   * It is the number of the pin used to control the right motor on counter-clock wise
   */
-int motorRightPin2 = 9;
+const int motorRightPin2 = 9;
 
 /** Pin of the foward infrared 
   *
@@ -75,18 +75,6 @@ bool buttonPressed = false;
   */
 bool firstAttack = false;
 
-/** Previous time of the attack
-  *
-  * Time of the previous attack of the sumobot
-  */
-long previousTime = 0;
-
-/** Current time of the attack
-  *
-  * Time of the current attack of the sumobot
-  */
-long currentTime = 0;
-
 /** Setup of the infrared pins, the button and the ultrasonic sensor
   *
   * Setup of the two infrared pins, one on the foward and the other on the rear, setup of one button and setup of the ultrasonic pins of the ultrasonic sensor, which is the trigger and the echo
@@ -108,6 +96,8 @@ void setup() {
   pinMode(motorLeftPin2, OUTPUT);
   pinMode(motorRightPin1, OUTPUT);
   pinMode(motorRightPin2, OUTPUT);
+
+  // Digital write of ultrasonic trigger to low
   digitalWrite(ultrasonicTriggerPin,LOW);
 }
 
@@ -168,25 +158,15 @@ void attack() {
   */
 void findEnemy() {
   // Code to find the enemy
-  bool flag = false;
-  currentTime = millis();
   if (!firstAttack) {
     moveMotors(255, -255);
     firstAttack = true;
     delay(250);
   }
-  while ((currentTime-previousTime) < 300 and flag == false) {
-    flag = true;
-    currentTime = millis();
-    moveMotors(255, 255);   
-  }
-  previousTime = currentTime;
-  while ((currentTime-previousTime) < 200 and flag == true) {
-    flag = false;
-    currentTime = millis();
-    moveMotors(-255, 255);  
-  }
-  previousTime = currentTime;
+  moveMotors(255, 255);
+  delay(300);
+  moveMotors(-255, 255);
+  delay(200);
 }
 
 /** Function to tell if the enemy is on the front or not
