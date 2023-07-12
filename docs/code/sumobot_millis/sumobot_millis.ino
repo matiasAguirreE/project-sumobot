@@ -60,7 +60,7 @@ Button buttonPin(1);
   *
   * It is the distance of the dome in centimeters where the sumobots have to fight
   */
-const int maxDistance = 40;
+const int maxDistance = 32;
 
 // Declaration of variables
 /** Boolean of button
@@ -169,7 +169,7 @@ void findEnemy() {
     }
     else {
       flag = false;
-      moveMotors(-100, 100);
+      moveMotors(100, -100);
       previousTime = currentTime;    
     }
   }
