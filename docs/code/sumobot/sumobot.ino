@@ -1,27 +1,29 @@
+#include <Button.h>
+
 // Declaration of pins
 /** Pin of the left motor on clockwise 
   *
   * It is the number of the pin used to control the left motor on clockwise
   */
-int motorLeftPin1 = 6;
+int motorLeftPin1 = 10;
 
 /** Pin of the left motor on counter-clock wise 
   *
   * It is the number of the pin used to control the left motor on counter-clock wise
   */
-int motorLeftPin2 = 9;
+int motorLeftPin2 = 11;
 
 /** Pin of the right motor on clockwise 
   *
   * It is the number of the pin used to control the right motor on clockwise
   */
-int motorRightPin1 = 10;
+int motorRightPin1 = 6;
 
 /** Pin of the right motor on counter-clock wise 
   *
   * It is the number of the pin used to control the right motor on counter-clock wise
   */
-int motorRightPin2 = 11;
+int motorRightPin2 = 9;
 
 /** Pin of the foward infrared 
   *
@@ -51,20 +53,14 @@ const int ultrasonicEchoPin = 2;
   *
   * It is the number of the pin used to control the button
   */
-const int buttonPin = 1;
+Button buttonPin(1);
 
 // Declaration of constants
 /** Distance of the dome in centimeters
   *
   * It is the distance of the dome in centimeters where the sumobots have to fight
   */
-const int maxDistance = 150;
-
-/** Value of threshold
-  *
-  * Value of threshold to establish when the infrared detect a color black and when the infrared detect a color white
-  */
-const int detectionThreshold = 800;
+const int maxDistance = 40;
 
 // Declaration of variables
 /** Boolean of button
@@ -73,19 +69,35 @@ const int detectionThreshold = 800;
   */
 bool buttonPressed = false;
 
+/** Boolean of first attack
+  *
+  * Boolean of the first attack of the sumobot that says if the sumobot used his first attack
+  */
+bool firstAttack = false;
+
+/** Previous time of the attack
+  *
+  * Time of the previous attack of the sumobot
+  */
+long previousTime = 0;
+
+/** Current time of the attack
+  *
+  * Time of the current attack of the sumobot
+  */
+long currentTime = 0;
+
 /** Setup of the infrared pins, the button and the ultrasonic sensor
   *
   * Setup of the two infrared pins, one on the foward and the other on the rear, setup of one button and setup of the ultrasonic pins of the ultrasonic sensor, which is the trigger and the echo
   */
 void setup() {
-  // Setup of the serial port
-  Serial.begin(9600);
   // Setup of the infrared pins
   pinMode(fowardInfraredPin, INPUT);
   pinMode(rearInfraredPin, INPUT);
 
   // Setup of the button
-  pinMode(buttonPin, INPUT_PULLUP);
+  buttonPin.begin();
 
   // Setup of the ultrasonic pins
   pinMode(ultrasonicTriggerPin, OUTPUT);
@@ -96,6 +108,7 @@ void setup() {
   pinMode(motorLeftPin2, OUTPUT);
   pinMode(motorRightPin1, OUTPUT);
   pinMode(motorRightPin2, OUTPUT);
+  digitalWrite(ultrasonicTriggerPin,LOW);
 }
 
 /** Loop to control the attack of the sumobot
@@ -104,25 +117,27 @@ void setup() {
   */
 void loop() {
   // If the button was pressed
-  if (digitalRead(buttonPin) == LOW && !buttonPressed){
+  if (buttonPin.toggled() && !buttonPressed){
     buttonWasPressed();
   }
   if (buttonPressed) {
-    // Look out the other sumobot to attack him
-    if (enemyIsNear()) {
-      // Attack the other sumobot
-      attack();
-    } else {
-      findEnemy();
-    }
     // Checkout if the sumobot is on the border 
-    if (onBorderFoward()) {
+    if (!onBorderRear()) {
+      // Go away from the border
+      goAwayRear();
+    }
+    else if (!onBorderFoward()) {
       // Go away from the border
       goAwayFoward();
     }
-    if (onBorderRear()) {
-      // Go away from the border
-      goAwayRear();
+    else{
+      // Look out the other sumobot to attack him
+      if (enemyIsNear()) {
+        // Attack the other sumobot
+        attack();
+      } else {
+        findEnemy();
+      }  
     }
   }
 }
@@ -133,7 +148,7 @@ void loop() {
   */
 void buttonWasPressed() {
   // Change boolean of buttonPressed
-  buttonPressed = true;
+  buttonPressed = !buttonPressed;
   // Delay to attack five seconds after the button was pressed
   delay(5000);
 }
@@ -144,7 +159,7 @@ void buttonWasPressed() {
   */
 void attack() {
   // Code to attack the enemy
-  moveMotors(0, 255);
+  moveMotors(255, 255);
 }
 
 /** Function to find the enemy
@@ -153,7 +168,25 @@ void attack() {
   */
 void findEnemy() {
   // Code to find the enemy
-  moveMotors(50, 50);
+  bool flag = false;
+  currentTime = millis();
+  if (!firstAttack) {
+    moveMotors(255, -255);
+    firstAttack = true;
+    delay(250);
+  }
+  while ((currentTime-previousTime) < 300 and flag == false) {
+    flag = true;
+    currentTime = millis();
+    moveMotors(255, 255);   
+  }
+  previousTime = currentTime;
+  while ((currentTime-previousTime) < 200 and flag == true) {
+    flag = false;
+    currentTime = millis();
+    moveMotors(-255, 255);  
+  }
+  previousTime = currentTime;
 }
 
 /** Function to tell if the enemy is on the front or not
@@ -164,8 +197,6 @@ void findEnemy() {
   */
 bool enemyIsNear() {
   // Generate a pulse to detect the enemy
-  digitalWrite(ultrasonicTriggerPin, LOW);
-  delayMicroseconds(2);
   digitalWrite(ultrasonicTriggerPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(ultrasonicTriggerPin, LOW);
@@ -187,10 +218,10 @@ bool enemyIsNear() {
   */
 bool onBorderFoward() {
   // Save the lecture of the infrared sensor
-  int lecture = analogRead(fowardInfraredPin);
+  int lecture = digitalRead(fowardInfraredPin);
 
   // Returns the boolean that says if the sumobot is on the border on the foward
-  return lecture>=detectionThreshold;
+  return lecture;
 }
 
 /** Function to tell if the border is on the rear or not
@@ -201,10 +232,10 @@ bool onBorderFoward() {
   */
 bool onBorderRear() {
   // Save the lecture of the infrared sensor
-  int lecture = analogRead(rearInfraredPin);
+  int lecture = digitalRead(rearInfraredPin);
 
   // Returns the boolean that says if the sumobot is on the border on the rear
-  return lecture>=detectionThreshold;
+  return lecture;
 }
 
 /** Function to go away from the border of the foward
@@ -214,6 +245,9 @@ bool onBorderRear() {
 void goAwayFoward() {
   // Code to go away from the border of the foward
   moveMotors(-255, -255);
+  delay(1000);
+  moveMotors(255, -255);
+  delay(300);
 }
 
 /** Function to go away from the border of the rear
@@ -223,6 +257,7 @@ void goAwayFoward() {
 void goAwayRear() {
   // Code to go away from the border of the rear
   moveMotors(255, 255);
+  delay(500);
 }
 
 /** Function to move the motors
@@ -235,12 +270,16 @@ void goAwayRear() {
 void moveMotors(int leftSpeed, int rightSpeed) {
   if (leftSpeed > 0) {
     analogWrite(motorLeftPin2, leftSpeed);  
+    analogWrite(motorLeftPin1, 0);  
   } else {
     analogWrite(motorLeftPin1, -leftSpeed);
+    analogWrite(motorLeftPin2, 0);
   }
   if (rightSpeed > 0) {
     analogWrite(motorRightPin2, rightSpeed);
+    analogWrite(motorRightPin1, 0);
   } else {
     analogWrite(motorRightPin1, -rightSpeed);
+    analogWrite(motorRightPin2, 0);
   }
 }
