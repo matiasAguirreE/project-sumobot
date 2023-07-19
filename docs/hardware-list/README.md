@@ -127,3 +127,8 @@ The following components are required to build the Universidad de Chile SumoBot:
 
 <img src="https://afel.cl/wp-content/uploads/2020/08/stock-pictures2f16212fset-xt60-macho-hembra-1200x900-1.jpg" alt="Conector" width="400">
 
+### Technical specifications:
+
+- Type: XT60 male/female set
+- Wire length: 10 cm on both sides
+
