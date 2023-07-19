@@ -125,5 +125,5 @@ The following components are required to build the Universidad de Chile SumoBot:
 
 ##[Conector](https://afel.cl/producto/set-conector-xt60-macho-hembra-con-cable-10cm/)
 
-<img src="https://afel.cl/wp-content/uploads/2020/08/stock-pictures2f16212fset-xt60-macho-hembra-1200x900-1.jpg" alt"Conector" width="400">
+<img src="https://afel.cl/wp-content/uploads/2020/08/stock-pictures2f16212fset-xt60-macho-hembra-1200x900-1.jpg" alt="Conector" width="400">
 
