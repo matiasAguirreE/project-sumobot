@@ -16,10 +16,12 @@
 
 Welcome to the Universidad de Chile SumoBot Project! This repository contains the design, code and documentation for a competitive sumo robot built by a team of engineering students at the Universidad de Chile. The goal of this project is to create a powerful and agile sumobot capable of competing in local and international sumo robot competitions.
 
+[![Sumobot](image/link)](https://www.youtube.com/watch?v=oi4M8AJG_24)
+
 ## Features
 
 - Custom mechanical design optimized to be difficult to flip
-- Advanced control algorithms for precise movement and decision-making (in progress)
+- Advanced control algorithms for precise movement and decision-making
 - Built-in object detection and tracking using sensors
 - Modular design for easy hardware and software upgrades
 - Comprehensive documentation for building and programming the sumobot
