@@ -122,3 +122,8 @@ The following components are required to build the Universidad de Chile SumoBot:
 - Pins: 4
 - Dimensions: 0.6 x 0.6cm
 - Weight: 0.8 gr
+
+##[Conector](https://afel.cl/producto/set-conector-xt60-macho-hembra-con-cable-10cm/)
+
+<img src="https://afel.cl/wp-content/uploads/2020/08/stock-pictures2f16212fset-xt60-macho-hembra-1200x900-1.jpg" alt"Conector" width="400">
+
