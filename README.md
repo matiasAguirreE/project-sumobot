@@ -14,46 +14,20 @@
 
 ## Introduction
 
-Welcome to the Universidad de Chile SumoBot Project! This repository contains the design, code and documentation for a competitive sumo robot built by a team of engineering students at the Universidad de Chile. The goal of this project is to create a powerful and agile sumobot capable of competing in local and international sumo robot competitions.
+Welcome to the Universidad de Chile SumoBot Project! This repository contains the design, code and documentation for a competitive sumo robot built by a team of engineering students at the Universidad de Chile. The goal of this project is to create a powerful and agile sumobot capable of competing in local sumo robot competitions.
 
 [![Sumobot](https://github.com/matiasAguirreE/project-sumobot/blob/main/docs/media/sumobot.jpg?raw=true)](https://www.youtube.com/watch?v=oi4M8AJG_24)
 
 ## Features
 
-- Custom mechanical design optimized to be difficult to flip
-- Advanced control algorithms for precise movement and decision-making
 - Built-in object detection and tracking using sensors
 - Modular design for easy hardware and software upgrades
 - Comprehensive documentation for building and programming the sumobot
 
-## Hardware Requirements
+## Requirements and getting started
 
-The following components are required to build the Universidad de Chile SumoBot:
+For the requirements and instructions to build and use this robot, please refer to the [assembly instructions](https://github.com/matiasAguirreE/project-sumobot/blob/main/docs/assembly-instructions) on this repository.
 
-- Gearmotor with Wheel
-- Battery
-- Driver
-- Infrared Sensor
-- Ultrasonic Sensor
-- Arduino
-- Wheel Omnidirectional
-- Cables
-- Protoboard
-
-## Software Requirements
-
-- IDE for microcontroller programming (e.g. Arduino IDE, Visual Studio Code with PlatformIO)
-- Libraries for motor control, sensor interfacing and communication
-- C++ for custom algorithms and control logic (other supported programming languages are optional, we will use C++)
-
-## Getting Started
-
-1. Clone this repository or download the source code as a ZIP file.
-2. Review the `docs` folder for detailed documentation on the mechanical design, electronic components, and software architecture.
-3. Assemble the hardware components following the provided schematics and guidelines.
-4. Upload the provided firmware to the microcontroller, and modify the code as needed for your specific hardware configuration.
-5. Test and calibrate the sumobot using the provided software tools.
-6. Compete and have fun!
 
 ## Contributing
 
