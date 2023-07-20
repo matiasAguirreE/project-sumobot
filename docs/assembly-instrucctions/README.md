@@ -53,7 +53,7 @@ For the front IR sensor, mount it from the bottom of the robot, and connect some
 
 ![Step 7.2](https://github.com/matiasAguirreE/project-sumobot/blob/main/docs/media/assembly/step-8.jpg?raw=true)
 
-8. Mount the Li-Po battery and the 9V battery onto the robot with some tape, such that they don't obstruct the Arduino's port, and the 9V battery remains close to the DC input of the Arduino. Then, mount the +/- side of the protoboard on top of the Li-Po battery and the button on the front of the Arduino box with sonme tape. 
+8. Mount the Li-Po battery and the 9V battery onto the robot with some tape, such that they don't obstruct the Arduino's port, and the 9V battery remains close to the DC input of the Arduino. Then, mount the +/- side of the protoboard on top of the Li-Po battery and the button on the front of the Arduino box with some tape. 
 
 ![Step 8](https://github.com/matiasAguirreE/project-sumobot/blob/main/docs/media/assembly/step-9.jpg?raw=true)
 
