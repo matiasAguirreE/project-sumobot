@@ -20,6 +20,7 @@ The following components are required to build the Universidad de Chile SumoBot:
 - Cutback: 1:45
 - Torque: 5 Kg x cm
 - Engine Weight: 86 gr
+- M4 nut, grub screw and M3x10 screws and nuts included
 
 ## [Battery](https://articulo.mercadolibre.cl/MLC-464519432-bateria-lipo-111v-25c-1300mah-airsoft-replicas-paintball-_JM#position=4&search_layout=stack&type=item&tracking_id=222f39a0-d4d9-4c22-90cd-d6a0d794090c)
 
