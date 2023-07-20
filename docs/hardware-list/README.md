@@ -20,7 +20,7 @@ The following components are required to build the Universidad de Chile SumoBot:
 - Cutback: 1:45
 - Torque: 5 Kg x cm
 - Engine Weight: 86 gr
-- M4 nut, grub screw and M3x10 screws and nuts included
+- M4 nut, grub screw, M3x10 screws and nuts and a wheel included
 
 ## [Battery](https://articulo.mercadolibre.cl/MLC-464519432-bateria-lipo-111v-25c-1300mah-airsoft-replicas-paintball-_JM#position=4&search_layout=stack&type=item&tracking_id=222f39a0-d4d9-4c22-90cd-d6a0d794090c)
 
@@ -55,7 +55,9 @@ The following components are required to build the Universidad de Chile SumoBot:
 
 ### Technical specifications:
 
-- N/A
+- Operating voltage between 3.3V and 5V
+- Detection distance: 2cm-30cm
+- Detection angle: 35°
 
 ## [Ultrasonic Sensor](https://mcielectronics.cl/shop/product/sensor-de-proximidad-de-ultrasonido-hc-sr04-23582/)
 
@@ -68,7 +70,7 @@ The following components are required to build the Universidad de Chile SumoBot:
 - Measuring angle: 15°
 - Distance range: 2cm – 4m
 
-## [Arduino](https://afel.cl/producto/placa-uno-compatible-con-arduino-cable-usb/)
+## [Arduino Uno Board](https://afel.cl/producto/placa-uno-compatible-con-arduino-cable-usb/)
 
 <img src="https://afel.cl/wp-content/uploads/2022/07/stock_pictures2F17822Farduino_uno_compatible_1200x900-768x576.jpg" alt="Arduino" width="400">
 
@@ -82,7 +84,7 @@ The following components are required to build the Universidad de Chile SumoBot:
 - 32k flash memory
 - 16MHz clock speed
 
-## [Wheel Omnidirectional](https://altronics.cl/rueda-omnidireccional)
+## [Omnidirectional wheel](https://altronics.cl/rueda-omnidireccional)
 
 <img src="https://altronics.cl/image/image/catalog/productos/robotica/partes/rueda-omnidireccional/rueda-omnidireccional-1-228x228.jpg" alt="Wheel Omnidirectional" width="400">
 
@@ -151,5 +153,7 @@ Additionally, you'll need the following screws and nuts:
 |Socket head screw|M3x25|4| Driver|
 |Hex nut|M4|24| All M4 screws |
 |Hex nut|M3|9|All M3 screws (except the ones for the Arduino)|
+
+You might also need at least 4 additional M4 hex nuts, please refer to the [assembly instructions](https://github.com/matiasAguirreE/project-sumobot/blob/main/docs/assembly-instructions) for more information.
 
 
