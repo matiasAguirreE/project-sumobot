@@ -4,13 +4,11 @@
 
 1. [Introduction](#introduction)
 2. [Features](#features)
-3. [Hardware Requirements](#hardware-requirements)
-4. [Software Requirements](#software-requirements)
-5. [Getting Started](#getting-started)
-6. [Contributing](#contributing)
-7. [Team Members](#team-members)
-8. [License](#license)
-9. [Acknowledgments](#acknowledgments)
+3. [Requirements and getting started](#requirements-and-getting-started)
+4. [Contributing](#contributing)
+5. [Team Members](#team-members)
+6. [License](#license)
+7. [Acknowledgments](#acknowledgments)
 
 ## Introduction
 
