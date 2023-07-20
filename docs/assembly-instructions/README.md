@@ -63,7 +63,7 @@ For the front IR sensor, mount it from the bottom of the robot, and connect some
 
 ![Circuit](https://github.com/matiasAguirreE/project-sumobot/blob/main/docs/media/circuit-diagram.png?raw=true)
 
-2. Connect the batteries and verify that at least one LED from the Arduino, the driver and the IR sensors each are on. Be wary of any indication of a short circuit and disconnect the Li-po battery inmediately if that's the case.
+2. Connect the batteries and verify that at least one LED from the Arduino, the driver and the IR sensors each are on. Be wary of any indication of a short circuit and disconnect the Li-Po battery inmediately if that's the case.
 
 3. If everything works properly, disconnect both batteries for now.
 
